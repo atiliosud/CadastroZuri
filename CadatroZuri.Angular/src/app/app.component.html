@@ -1,0 +1,71 @@
+<div class="content">
+  <form role="main" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="row-img">
+      <a href="https://gozuri.com/" title="Zuri - Zuri" rel="home">
+        <img width="120" height="48" src="https://gozuri.com/wp-content/uploads/2021/12/LogoZurialta.png" alt="Zuri">
+      </a>
+    </div>
+    <div class="row-form">
+
+      <label>Nome</label>
+
+      <input type="text"
+             formControlName="nome"
+             placeholder="Digite aqui o nome">
+      <span class="erro" *ngIf="form.controls?.['nome']?.errors?.['required'] && form.touched">
+        Nome é obrigatório.
+      </span>
+    </div>
+
+    <div class="row-form">
+
+      <label>Data de nascimento</label>
+
+      <input type="date"
+             formControlName="dtNascimento"
+             placeholder="DD/MM/AAAA">
+      <span class="erro" *ngIf="form.controls?.['dtNascimento']?.errors?.['required'] && form.touched">
+        Data de nascimento é obrigatório.
+      </span>
+    </div>
+
+    <div class="row-form">
+
+      <label>Email</label>
+
+      <input type="email"
+             formControlName="email"
+             placeholder="Digite aqui o email">
+      <span class="erro" *ngIf="form.controls?.['email']?.errors?.['required'] && form.touched">
+        Email é obrigatório.
+      </span>
+    </div>
+
+    <div class="row-form">
+
+      <label>Estado civil</label>
+      <select formControlName="estadoCivil" placeholder="Selecione uma opção"
+              id="estadoCivil" name="estadoCivil">
+        <option value="">Select</option>
+        <option [ngValue]="1">
+          Solteiro
+        </option>
+        <option [ngValue]="2">
+          Casado
+        </option>
+        <option [ngValue]="3">
+          Divorciado
+        </option>
+      </select>
+      <span class="erro" *ngIf="form.controls?.['estadoCivil']?.errors?.['required'] && form.touched">
+        Estado civil é obrigatório.
+      </span>
+    </div>
+    <div class="row-btn">
+
+      <button class="button" type="submit">CADASTRAR »</button>
+    </div>
+  </form>
+</div>
+
